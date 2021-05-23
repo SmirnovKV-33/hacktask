@@ -1,61 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h4>Реализованная функциональность</h4>
+<ul>
+    <li>Вывод данных изношенности сенсоров</li>
+    <li>Вывод карты пробок</li>
+    <li>Возможность изменения фазы светофора</li>
+    <li>Рекомендация фазы светофора</li>
+</ul> 
+<h4>Особенность проекта в следующем:</h4>
+<ul>
+ <li>Вся логика перенесена на хардвэйер решение</li>
+ <li>Датчик самостоятельно с помощью Keras распознает информацию</li>
+ </ul>
+<h4>Основной стек технологий:</h4>
+<ul>
+    <li>LAMP</li>
+	<li>HTML, CSS, JavaScript, TypeScript.</li>
+	<li>PHP 7, MySQL.</li>
+	<li>Laravel</li>
+	<li>LESS, SASS.</li>
+	<li>Webpack.</li>
+	<li>Vue.</li>
+	<li>Git.</li>
+  
+ </ul>
+<h4>Демо</h4>
+<p>Демо сервиса было развернуто на локалхосте, есть видео работы https://www.youtube.com/watch?v=4dHVCADeYPE</p>
+<p>Для удобства проверки авторизация отключена.</p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+СРЕДА ЗАПУСКА
+------------
+1) развертывание сервиса производится на debian-like linux (debian 9+);
+2) требуется установленный web-сервер с поддержкой PHP(версия 7.4+) интерпретации (apache, nginx);
+3) требуется установленная СУБД MariaDB (версия 10+);
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Необходимые PHP расширения php7.0-mbstring php7.0-xml composer unzip
+~~~
+sudo apt-get install php7.0-mbstring php7.0-xml composer unzip
+~~~
 
-## Learning Laravel
+УСТАНОВКА
+------------
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### База данных
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Необходимо создать пустую базу данных, а подключение к базе прописать в конфигурационный файл сервиса по адресу: папка_сервиса/.env формат env файла есть рядом, называется .env.example
 
-## Laravel Sponsors
+### Установка зависимостей проекта
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Установка зависимостей осуществляется с помощью [Composer](http://getcomposer.org/). Если у вас его нет вы можете установить его по инструкции
+на [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
-### Premium Partners
+После этого выполнить команду в директории проекта:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+~~~
+composer install
+~~~
+### Установка laravel
 
-## Contributing
+Выполните копирование кода, а затем в папке проекта следующие команды:
+~~~
+php artisan key:generate 
+php artisan migrate
+npm install
+npm run watch
+~~~
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+РАЗРАБОТЧИКИ
 
-## Code of Conduct
+<h4>Смирнов Кирилл Вячеславович https://t.me/Krya_i</h4>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
